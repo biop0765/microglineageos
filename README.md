@@ -9,7 +9,7 @@ See releases for images of various devices
 ## To upload
 
 ```bash
-##go get github.com/github-release/github-release
+#go install github.com/github-release/github-release@latest
 
 download_microg_images () {
 myArray=("taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
