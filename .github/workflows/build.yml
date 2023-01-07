@@ -29,11 +29,8 @@ jobs:
         MY_PAT: ${{ secrets.MY_PAT }}
       run: |
         find . -iname "download_upload"
+        readlink -f download_upload
         sed -i "s/github_pat_CHANGEME/$GH_PAT/g" download_upload
-
-    - name: Build
-      run: |
-        cd $HOME
         chmod +x download_upload
         #ls -al _release/bin
 
