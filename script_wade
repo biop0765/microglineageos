@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GITHUB_TOKEN=github_pat_CHANGEME
+
 wget --quiet --wait 2 --random-wait https://download.lineageos.org/wade
 awk 'BEGIN{
 RS="</a>"
@@ -21,7 +23,8 @@ echo $i
 wget --quiet --wait 2 --random-wait $i
 done
 
-export GITHUB_TOKEN=github_pat_CHANGEME
+
+find . 
 
 echo "Listing all files"
 for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -iname lineage\*256 \) -printf '%f\n'`
@@ -29,6 +32,7 @@ do
 echo $i
 done
 
+exit 0
 github-release upload --user biop0765 \
    --repo assorted_lineageos_backup \
    --tag wade  \
