@@ -4,7 +4,7 @@
 
 myArray=("taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
 myArray=("crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
-myArray=("sunfish")
+myArray=("bonito")
 for LIST_OF_DEVICES in ${myArray[@]}
 do
  echo $LIST_OF_DEVICES
