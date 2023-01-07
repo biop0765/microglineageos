@@ -17,6 +17,10 @@ IGNORECASE=1
   }
 }' wade | grep mirrorbits | head -4 > list_of_wade
 
+github-release  info --user biop0765 \
+   --repo assorted_lineageos_backup \
+   | grep artifact  > current_files_in_github
+
 echo "Running wget"
 for i in `cat list_of_wade`
 do
@@ -28,10 +32,18 @@ echo "Uploading lineage files"
 for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -o -iname lineage\*256 \) -printf '%f\n'`
 do
 echo $i
-github-release upload --user biop0765 \
-   --repo assorted_lineageos_backup \
-   --tag wade  \
-   --file $i --name $i
-rm -fr $i
-sleep 2
+  if grep $i current_files_in_github > /dev/null
+  then
+    echo $i " exists in github"
+    rm -f $i
+  else
+    echo $i " is a new file"
+    github-release upload --user biop0765 \
+         --repo assorted_lineageos_backup \
+         --tag wade  \
+         --file $i --name $i
+    rm -fr $i
+    sleep 1
+   fi
 done
+exit 0
