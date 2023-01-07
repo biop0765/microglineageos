@@ -7,15 +7,14 @@ myArray=("taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunf
 RANDOM_DEVICE=${myArray[ $RANDOM % ${#myArray[@]} ]}
 echo $RANDOM_DEVICE
 
-exit 0
 
 #for LIST_OF_DEVICES in ${myArray[@]}
-
- wget --quiet --wait 2 --random-wait \
-      --no-clobber \
+#wget -q --show-progress --progress=bar:force 2>&1
+wget --quiet --wait 2 --random-wait \
+      --no-clobber --show-progress --progress=bar:force \
       -r -l1 --no-parent --no-directories \
-      --no-verbose https://download.lineage.microg.org/$RANDOM_DEVICE/
-done
+      https://download.lineage.microg.org/$RANDOM_DEVICE/
+#done
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 
