@@ -1,4 +1,4 @@
-name: Build GDrive CLI
+name: lineage microg
 
 on:
   push:
@@ -20,11 +20,11 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: prereq
+    - name: Installing github-release
       run: |
-        go install github.com/github-release/github-release@latest
+        go install github.com/github-release/github-release@latest > /dev/null 2>&1
 
-    - name: Change PAT
+    - name: Change PAT and running script
       env:
         MY_PAT: ${{ secrets.MY_PAT }}
       run: |
@@ -32,7 +32,7 @@ jobs:
         readlink -f download_upload
         sed -i "s/github_pat_CHANGEME/$MY_PAT/g" download_upload
         chmod +x download_upload
-        echo "Running sunfish"
+        echo "Running script now............"
         ./download_upload
         #ls -al _release/bin
 
