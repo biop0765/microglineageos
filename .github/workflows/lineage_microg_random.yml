@@ -1,4 +1,4 @@
-name: lineage microg
+name: lineage microg random
 
 on:
   workflow_dispatch:
@@ -49,10 +49,8 @@ jobs:
         find . -iname "download_upload"
         readlink -f download_upload
         sed -i "s/github_pat_CHANGEME/$MY_PAT/g" download_upload
-        sed -i "s/github_pat_CHANGEME/$MY_PAT/g" script_wade
-        chmod +x download_upload script_wade
+        chmod +x download_upload
         echo "Running script now............"
-        #./download_upload
-        ./script_wade
+        ./download_upload
         #ls -al _release/bin
 
