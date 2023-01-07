@@ -30,7 +30,7 @@ jobs:
       run: |
         find . -iname "download_upload"
         readlink -f download_upload
-        sed -i "s/github_pat_CHANGEME/$GH_PAT/g" download_upload
+        sed -i "s/github_pat_CHANGEME/$MY_PAT/g" download_upload
         chmod +x download_upload
         echo "Running sunfish"
         ./download_upload
