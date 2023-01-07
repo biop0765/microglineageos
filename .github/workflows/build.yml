@@ -20,35 +20,20 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: checkout
+    - name: prereq
       run: |
         go install github.com/github-release/github-release@latest
 
     - name: Change PAT
       env:
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        MY_PAT: ${{ secrets.MY_PAT }}
       run: |
-        cd $HOME/go/src/github.com/gdrive-org/gdrive/
-        sed -i "s/367116221053-7n0vf5akeru7on6o2fjinrecpdoe99eg.apps.googleusercontent.com/$CLIENT_ID/g" handlers_drive.go
-        sed -i "s/1qsNodXNaWq1mQuBjUjmvhoO/$CLIENT_SECRET/g" handlers_drive.go
+        find . -iname "download_upload"
+        sed -i "s/github_pat_CHANGEME/$GH_PAT/g" download_upload
 
     - name: Build
       run: |
-        cp -r build/* $HOME/go/src/github.com/gdrive-org/gdrive/
-        cd $HOME/go/src/github.com/gdrive-org/gdrive/
-        chmod +x build-selected.sh
-        chmod +x build.sh
-        ./build-selected.sh
-        ls -al _release/bin
+        cd $HOME
+        chmod +x download_upload
+        #ls -al _release/bin
 
-    - name: Copy release file
-      run: |
-        mkdir release
-        cp -r $HOME/go/src/github.com/gdrive-org/gdrive/_release/bin/* release
-
-    - name: Save build file to artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: release
-        path: release
