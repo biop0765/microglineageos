@@ -22,7 +22,7 @@ done
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 
-for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img \) -printf '%f\n'`
+for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -iname lineage\*256 \) -printf '%f\n'`
 do
 echo $i
 github-release upload --user biop0765 \
