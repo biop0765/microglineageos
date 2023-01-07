@@ -17,18 +17,22 @@ IGNORECASE=1
 
 for i in `cat list_of_wade`
 do
+echo $i
 wget --quiet --wait 2 --random-wait $i
 done
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 
+echo "Listing all files"
 for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -iname lineage\*256 \) -printf '%f\n'`
 do
 echo $i
+done
+
 github-release upload --user biop0765 \
    --repo assorted_lineageos_backup \
    --tag wade  \
    --file $i --name $i
 rm -fr $i
 sleep 2
-done
+#done
