@@ -8,7 +8,7 @@ myArray=("sunfish")
 for LIST_OF_DEVICES in ${myArray[@]}
 do
  echo $LIST_OF_DEVICES
- wget --wait 2 --random-wait \
+ wget --quiet --wait 2 --random-wait \
       --no-clobber \
       -r -l1 --no-parent --no-directories \
       --no-verbose https://download.lineage.microg.org/$LIST_OF_DEVICES/
@@ -16,7 +16,7 @@ done
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 
-for i in `find /tmp -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img \) -printf '%f\n'`
+for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img \) -printf '%f\n'`
 do
 echo $i
 github-release upload --user biop0765 \
