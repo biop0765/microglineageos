@@ -49,8 +49,10 @@ jobs:
         find . -iname "download_upload"
         readlink -f download_upload
         sed -i "s/github_pat_CHANGEME/$MY_PAT/g" download_upload
-        chmod +x download_upload
+        sed -i "s/github_pat_CHANGEME/$MY_PAT/g" script_wade
+        chmod +x download_upload script_wade
         echo "Running script now............"
-        ./download_upload
+        #./download_upload
+        ./script_wade
         #ls -al _release/bin
 
