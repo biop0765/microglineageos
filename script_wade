@@ -24,12 +24,8 @@ echo $i
 wget --quiet --wait 2 --random-wait $i
 done
 
-find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -o -iname lineage\*256 \) -printf '%f\n'
-
-exit 0
-
-echo "Uploading all files"
-for i in `find . -type f \( -iname lineage* \) -printf '%f\n'`
+echo "Uploading lineage files"
+for i in `find . -type f \( -iname lineage\*m -o -iname lineage\*.zip -o -iname lineage\*img -o -iname lineage\*256 \) -printf '%f\n'`
 do
 echo $i
 github-release upload --user biop0765 \
