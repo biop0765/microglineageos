@@ -20,7 +20,7 @@ on:
 # push:
 #   branches: [ master ]
   schedule:
-    - cron: '01 20 * * *'
+    - cron: '26 17 * * *'
     
 jobs:
 
@@ -51,7 +51,7 @@ jobs:
         sed -i "s/github_pat_CHANGEME/$MY_PAT/g" download_upload
         sudo apt-get install -y rename > /dev/null 2>&1
         chmod +x download_upload
-        echo "Running script now............"
+        echo "Running script now ............"
         ./download_upload
         #ls -al _release/bin
 
