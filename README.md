@@ -11,6 +11,9 @@ See releases for images of various devices
 ```bash
 #go install github.com/github-release/github-release@latest
 
+# Create a tag
+github-release release  --user biop0765 --repo assorted_lineageos_backup --tag oriole
+
 download_microg_images () {
 myArray=("taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
 for LIST_OF_DEVICES in ${myArray[@]}
