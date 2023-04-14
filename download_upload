@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 export GITHUB_TOKEN=github_pat_CHANGEME
 
 myArray=("raven" "bluejay" "panther" "cheetah" "oriole" "taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
