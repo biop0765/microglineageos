@@ -3,9 +3,7 @@
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 
-myArray=("raven" "bluejay" "panther" "cheetah" "oriole" "taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
-myArray=("taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
-#myArray=("crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "marlin")
+myArray=("sailfish" "walleye" "taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "coral" "sunfish" "bramble" "redfin" "barbet" "oriole" "raven" "bluejay" "panther" "cheetah" "lynx" "marlin")
 RANDOM_DEVICE=${myArray[ $RANDOM % ${#myArray[@]} ]}
 echo $RANDOM_DEVICE
 
@@ -17,7 +15,7 @@ wget --quiet --wait 2 --random-wait \
 #done
 
 github-release  info --user biop0765 \
-   --repo assorted_lineageos_backup \
+   --repo microglineageos \
    | grep artifact  > current_files_in_github
 
 echo "Renaming lineage files"
@@ -37,11 +35,10 @@ echo $i
   else
       echo $i " is a new file. So uploading..."
       github-release upload -R --user biop0765 \
-         --repo assorted_lineageos_backup \
+         --repo microglineageos \
          --tag $RANDOM_DEVICE  \
          --file $i --name $i
       rm -fr $i
-      sleep 2
    fi
 done
 
