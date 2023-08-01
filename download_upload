@@ -36,7 +36,7 @@ echo $i
     rm -f $i
   else
       echo $i " is a new file. So uploading..."
-      github-release upload --user biop0765 \
+      github-release upload -R --user biop0765 \
          --repo assorted_lineageos_backup \
          --tag $RANDOM_DEVICE  \
          --file $i --name $i
