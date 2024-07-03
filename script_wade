@@ -1,5 +1,6 @@
 #!/bin/bash
 
+exit 0
 export GITHUB_TOKEN=github_pat_CHANGEME
 wget --quiet --wait 2 --random-wait https://download.lineageos.org/wade
 awk 'BEGIN{
