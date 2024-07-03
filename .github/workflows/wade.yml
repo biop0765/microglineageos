@@ -19,8 +19,8 @@ on:
 
 # push:
 #   branches: [ master ]
-  schedule:
-    - cron: '30 4 1 * *'
+# schedule:
+#   - cron: '30 4 1 * *'
     
 jobs:
 
