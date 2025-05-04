@@ -2,7 +2,7 @@
 
 export GITHUB_TOKEN=github_pat_CHANGEME
 #myArray=("coral" "walleye" "taimen" "blueline" "crosshatch" "sargo" "bonito" "flame" "sailfish" "sunfish" "bramble" "redfin" "barbet" "oriole" "raven" "bluejay" "panther" "cheetah" "lynx" "marlin")
-myArray=("walleye" "blueline" "taimen" "sargo" "sailfish" "bonito" "crosshatch")
+myArray=("walleye" "blueline" "taimen" "sargo" "sailfish" "bonito" "crosshatch" "barbet")
 RANDOM_DEVICE=${myArray[ $RANDOM % ${#myArray[@]} ]}
 echo $RANDOM_DEVICE
 
